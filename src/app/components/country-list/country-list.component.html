@@ -1,3 +1,39 @@
 <div class="container-inicial">
-    TESTE COUNTRY LIST
+    <div class="filter">
+        <div class="card-filters search">
+            <mat-icon class="icon">search</mat-icon>
+            <input class="input" type="text" placeholder="Pesquise por seu país...">
+        </div>
+        <div class="dropdown-abaixo card-filters">
+            <button class="selector" type="button" data-bs-toggle="dropdown" aria-expanded="false"
+                (click)="toggleDropdown()">
+                Filtrar por Região
+                <mat-icon class="icon-expand " [class.rotated]="isDropdownOpen">
+                    expand_more
+                </mat-icon>
+            </button>
+            <ul class="custom-dropdown" [class.open]="isDropdownOpen">
+                <li><a class="dropdown-item" href="#">Opção 1</a></li>
+                <li><a class="dropdown-item" href="#">Opção 2</a></li>
+                <li><a class="dropdown-item" href="#">Opção 3</a></li>
+
+            </ul>
+        </div>
+    </div>
+    <div class="container-secundario">
+        <!-- <div *ngFor="let pais of paises"> -->
+        <div class="card-country">
+
+            <div>
+                <img [src]="paises" alt="alguma bandeira">
+            </div>
+            <div>
+                <div>Nome</div>
+                <div>Populacao</div>
+                <div>Regiao</div>
+                <div>Capital</div>
+            </div>
+            <!-- </div> -->
+        </div>
+    </div>
 </div>

@@ -1,14 +1,23 @@
 import { Component } from '@angular/core';
-import { NavbarComponent } from "./components/navbar/navbar.component";
 import { CountryListComponent } from "./components/country-list/country-list.component";
+
+import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatInputModule } from '@angular/material/input';
+
+import { NavbarComponent } from "./components/navbar/navbar.component";
+import { FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [NavbarComponent, CountryListComponent],
+  imports: [ReactiveFormsModule, NavbarComponent, CountryListComponent, MatButtonModule, MatCardModule, MatFormFieldModule, MatSidenavModule, MatInputModule],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  styleUrl: './app.component.scss'
 })
 export class AppComponent {
+  textControl = new FormControl('', Validators.required);
   title = 'projeto-paises';
 }

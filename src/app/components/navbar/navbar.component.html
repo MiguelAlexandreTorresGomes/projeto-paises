@@ -1,4 +1,7 @@
 <div class="navbar">
-    <div>Teste</div>
-    <div>teste 2</div>
+    <h2>Aonde no mundo?</h2>
+    <button mat-raised-button (click)="toggleDarkMode()">
+        <mat-icon>{{ isDarkMode() ? 'dark_mode' : 'light_mode' }}</mat-icon>
+        <div>{{!isDarkMode() ? 'Ativar' : 'Desativar'}} modo escuro</div>
+    </button>
 </div>

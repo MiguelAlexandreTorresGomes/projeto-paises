@@ -1,0 +1,33 @@
+@use '@angular/material' as mat;
+
+@include mat.core();
+html{
+  width: 100%!important;
+  height: 100%!important;
+}
+body{
+  --primary-color: #ffffff;
+  --bg-color: #fafafa;
+  --text-color: #111517;
+  --icon-color: rgba(0, 0, 0, 0.432);
+  background-color: var(--bg-color)!important;
+  color: var(--text-color);
+  font-family: 'Roboto', sans-serif;
+  transition: all 0.1s ease;
+}
+
+// Dark mode
+body.dark-mode {
+  --bg-color: #202c37;
+  --text-color: #ffffff;
+  --primary-color: #2B3743;
+  --icon-color: #ffffff;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  transition: all 0.1s ease;
+}
+
+.icon {
+  color: var(--icon-color);
+  transition: all 0.1s ease;
+}

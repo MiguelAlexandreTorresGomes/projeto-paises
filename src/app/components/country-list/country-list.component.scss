@@ -1,0 +1,116 @@
+.container-inicial {
+    padding: 3% 5%;
+}
+
+.filter {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.card-filters {
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    background-color: var(--primary-color);
+    padding: 1% 1.5%;
+    display: flex;
+    gap: 5%;
+    align-items: center;
+    border-radius: 5px;
+    justify-content: space-between;
+    border: none;
+}
+
+.search {
+    width: 35%;
+}
+
+.selector {
+    border: none;
+    background-color: transparent;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    gap: 10px;
+    color: var(--text-color);
+}
+
+.input {
+    background-color: transparent;
+    border: none;
+    width: 100%;
+    color: var(--text-color);
+}
+
+.input:focus {
+    outline: none;
+    box-shadow: 0 0 0 0;
+}
+
+.input::placeholder {
+    color: var(--icon-color);
+}
+
+.icon-expand {
+    transition: transform 0.3s ease;
+    transform-origin: center;
+}
+
+.icon-expand.rotated {
+    transform: rotate(180deg);
+}
+
+
+.dropdown-abaixo {
+    position: relative;
+}
+
+.custom-dropdown {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: var(--primary-color);
+    border-radius: 5px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15);
+    list-style: none;
+    padding: 0;
+    overflow: hidden;
+    z-index: 1000;
+    max-height: 0;
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: all 0.1s ease;
+}
+
+.custom-dropdown.open {
+    max-height: 500px;
+    opacity: 1;
+    transform: translateY(0);
+    margin-top: 10px;
+}
+
+.dropdown-item {
+    padding: 0.6rem 1rem;
+    cursor: pointer;
+    transition: background 0.1s;
+
+    &:hover {
+        background: var(--bg-color);
+    }
+}
+
+.container-secundario {
+    padding: 5% 0%;
+    flex-direction: row;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, auto));
+    gap: 10% 3%;
+
+}
+
+.card-country {
+    display: flex;
+    border: 1px solid black;
+    flex-direction: column;
+
+}

@@ -1,9 +1,0 @@
-
-.navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 5%;
-    height: 60px;
-    /* box-shadow: 0px 2px 10px rgba(100, 100, 100, 0.212) */
-}
