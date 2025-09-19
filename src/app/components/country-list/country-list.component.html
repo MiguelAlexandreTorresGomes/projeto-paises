@@ -2,38 +2,38 @@
     <div class="filter">
         <div class="card-filters search">
             <mat-icon class="icon">search</mat-icon>
-            <input class="input" type="text" placeholder="Pesquise por seu país...">
+            <input class="input" type="text" placeholder="Pesquise por seu país..." [(ngModel)]="searchText"
+                (ngModelChange)="filterByCountry(searchText)">
+
         </div>
         <div class="dropdown-abaixo card-filters">
             <button class="selector" type="button" data-bs-toggle="dropdown" aria-expanded="false"
                 (click)="toggleDropdown()">
-                Filtrar por Região
+                <div class="name-region-filter">Filtrar por Região</div>
                 <mat-icon class="icon-expand " [class.rotated]="isDropdownOpen">
                     expand_more
                 </mat-icon>
             </button>
             <ul class="custom-dropdown" [class.open]="isDropdownOpen">
-                <li><a class="dropdown-item" href="#">Opção 1</a></li>
-                <li><a class="dropdown-item" href="#">Opção 2</a></li>
-                <li><a class="dropdown-item" href="#">Opção 3</a></li>
-
+                <li class="dropdown-item" (click)="filterByRegion('')">Todas</li>
+                <li class="dropdown-item" *ngFor="let region of regions" (click)="filterByRegion(region)">
+                    {{ region }}
+                </li>
             </ul>
         </div>
     </div>
     <div class="container-secundario">
-        <!-- <div *ngFor="let pais of paises"> -->
-        <div class="card-country">
+        <div *ngIf="loading">Carregando...</div>
+        <div class="card-country" *ngFor="let country of countries">
+            <img classe="img-country" [src]="country.flags.png" [alt]="country.name.common">
+            <div class="info-country">
+                <h3>{{ country.name.common }}</h3>
+                <p>População: {{ country.population | number }}</p>
+                <p>Região: {{ country.region }}</p>
+                <p>Capital: {{ country.capital?.[0] }}</p>
 
-            <div>
-                <img [src]="paises" alt="alguma bandeira">
             </div>
-            <div>
-                <div>Nome</div>
-                <div>Populacao</div>
-                <div>Regiao</div>
-                <div>Capital</div>
-            </div>
-            <!-- </div> -->
         </div>
+
     </div>
 </div>

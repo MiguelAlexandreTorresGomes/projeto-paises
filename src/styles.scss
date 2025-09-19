@@ -1,16 +1,19 @@
 @use '@angular/material' as mat;
 
 @include mat.core();
-html{
-  width: 100%!important;
-  height: 100%!important;
+
+html {
+  width: 100% !important;
+  height: 100% !important;
 }
-body{
+
+body {
   --primary-color: #ffffff;
   --bg-color: #fafafa;
   --text-color: #111517;
   --icon-color: rgba(0, 0, 0, 0.432);
-  background-color: var(--bg-color)!important;
+  --description-color: rgba(0, 0, 0, 0.534);
+  background-color: var(--bg-color) !important;
   color: var(--text-color);
   font-family: 'Roboto', sans-serif;
   transition: all 0.1s ease;
@@ -22,6 +25,7 @@ body.dark-mode {
   --text-color: #ffffff;
   --primary-color: #2B3743;
   --icon-color: #ffffff;
+  --description-color: #ffffffb4;
   background-color: var(--bg-color);
   color: var(--text-color);
   transition: all 0.1s ease;
@@ -30,4 +34,48 @@ body.dark-mode {
 .icon {
   color: var(--icon-color);
   transition: all 0.1s ease;
+}
+
+
+
+@media (max-width: 768px) {
+  .navbar button div:last-child {
+    display: none;
+  }
+
+  .name-region-filter {
+    display: none;
+  }
+
+  .dropdown-abaixo.card-filters {
+    min-width: 50%;
+  }
+
+  .selector {
+    width: 100%;
+  }
+
+  .nav-title {
+    font-size: medium;
+    padding: 1% 0%;
+
+  }
+}
+
+@media (max-width: 1200px) {
+  .container-secundario {
+    grid-template-columns: repeat(3, 1fr) !important;
+  }
+}
+
+@media (max-width: 900px) {
+  .container-secundario {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+}
+
+@media (max-width: 600px) {
+  .container-secundario {
+    grid-template-columns: 1fr !important;
+  }
 }
