@@ -6,9 +6,9 @@
                 (ngModelChange)="filterByCountry(searchText)">
 
         </div>
-        <div class="dropdown-abaixo card-filters">
+        <div class="dropdown-abaixo card-filters" (click)="toggleDropdown()">
             <button class="selector" type="button" data-bs-toggle="dropdown" aria-expanded="false"
-                (click)="toggleDropdown()">
+                >
                 <div class="name-region-filter">Filtrar por Região</div>
                 <mat-icon class="icon-expand " [class.rotated]="isDropdownOpen">
                     expand_more
@@ -23,9 +23,9 @@
         </div>
     </div>
     <div class="container-secundario">
-        <div *ngIf="loading">Carregando...</div>
-        <div class="card-country" *ngFor="let country of countries">
-            <img classe="img-country" [src]="country.flags.png" [alt]="country.name.common">
+        <h1 *ngIf="loading">Carregando...</h1>
+        <div class="card-country" *ngFor="let country of countries" [routerLink]="['/country', country.cca3]">
+            <img class="img-country" [src]="country.flags.png" [alt]="country.name.common">
             <div class="info-country">
                 <h3>{{ country.name.common }}</h3>
                 <p>População: {{ country.population | number }}</p>

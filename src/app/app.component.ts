@@ -9,11 +9,20 @@ import { MatInputModule } from '@angular/material/input';
 
 import { NavbarComponent } from "./components/navbar/navbar.component";
 import { FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
+import { RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [ReactiveFormsModule, NavbarComponent, CountryListComponent, MatButtonModule, MatCardModule, MatFormFieldModule, MatSidenavModule, MatInputModule],
+  imports: [
+    ReactiveFormsModule,
+    NavbarComponent,
+    MatButtonModule,
+    MatCardModule,
+    MatFormFieldModule,
+    MatSidenavModule,
+    MatInputModule,
+    RouterOutlet],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })

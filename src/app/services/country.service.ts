@@ -8,21 +8,29 @@ import { Observable } from 'rxjs';
 export class CountryService {
   private apiUrl = 'https://restcountries.com/v3.1';
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
-    getAllCountries(): Observable < any[] > {
-      return this.http.get<any[]>(`${this.apiUrl}/all?fields=name,capital,flags,region,population`);
-    }
-
-    getCountryByName(name: string): Observable < any[] > {
-      return this.http.get<any[]>(`${this.apiUrl}/name/${name}`);
-    }
-
-    getCountryByCode(code: string): Observable < any > {
-      return this.http.get<any>(`${this.apiUrl}/alpha/${code}`);
-    }
-
-    getByRegion(region: string): Observable < any[] > {
-      return this.http.get<any[]>(`${this.apiUrl}/region/${region}`);
-    }
+  getAllCountries(): Observable<any[]> {
+    return this.http.get<any[]>(
+      `${this.apiUrl}/all?fields=name,cca3,flags,population,region,capital`
+    );
   }
+
+
+  getCountryByName(name: string): Observable<any[]> {
+    return this.http.get<any[]>(`${this.apiUrl}/name/${name}`);
+  }
+  getCountryByCode(code: string): Observable<any[]> {
+    return this.http.get<any[]>(`${this.apiUrl}/alpha/${code}`);
+  }
+
+
+  getByRegion(region: string): Observable<any[]> {
+    return this.http.get<any[]>(`${this.apiUrl}/region/${region}`);
+  }
+  getCountriesByCodes(codes: string[]): Observable<any[]> {
+    const codesParam = codes.join(',');
+    return this.http.get<any[]>(`${this.apiUrl}/alpha?codes=${codesParam}`);
+  }
+  
+}

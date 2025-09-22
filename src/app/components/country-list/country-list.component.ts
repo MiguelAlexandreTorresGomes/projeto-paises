@@ -3,11 +3,12 @@ import { Component } from '@angular/core';
 import { MatIcon } from '@angular/material/icon';
 import { CountryService } from '../../services/country.service';
 import { FormsModule } from '@angular/forms';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-country-list',
   standalone: true,
-  imports: [CommonModule, MatIcon,FormsModule],
+  imports: [CommonModule, MatIcon,FormsModule,RouterLink],
   templateUrl: './country-list.component.html',
   styleUrl: './country-list.component.scss'
 })
